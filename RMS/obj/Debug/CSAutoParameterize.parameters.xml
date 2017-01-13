@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-RMS-20161028094944.mdf;Initial Catalog=aspnet-RMS-20161028094944;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Himanshu\ Chauhan\\documents\\visual\ studio\ 2015\\Projects\\RMS\\RMS\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="RMSContext-Web.config Connection String" description="RMSContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\RMS.mdf;Initial Catalog=RMS;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Himanshu\ Chauhan\\documents\\visual\ studio\ 2015\\Projects\\RMS\\RMS\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RMSContext']/@connectionString" />
+  </parameter>
+  <parameter name="RMSContext_DatabasePublish-Web.config Connection String" description="RMSContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="RMSContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Himanshu\ Chauhan\\documents\\visual\ studio\ 2015\\Projects\\RMS\\RMS\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RMSContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

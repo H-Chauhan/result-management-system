@@ -1,0 +1,100 @@
+﻿@model RMS.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Result</h2>
+
+<div>
+	<button class="btn btn-success pull-right" onclick="window.print()">Print</button>
+    <h4>Student</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.SPI)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.SPI)
+		</dd>
+		
+    </dl>
+	<hr />
+	<h3>Mark Sheet</h3>
+	<table class="table">
+		<tr>
+			<th>Code</th>
+			<th>Course Title</th>
+			<th>Marks Obtained / Max Marks</th>
+			<th>Credits Obtained / Max Credits</th>
+			<th>Remarks</th>
+		</tr>
+		@foreach (var item in Model.Results)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Subject.Code)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Subject.Title)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.MarksObtained) / @Html.DisplayFor(modelItem => item.Subject.MaxMarks)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Credits) / @Html.DisplayFor(modelItem => item.Subject.Credits)
+				</td>
+				<td>
+					@if(item.Credits == 0)
+					{
+						<p class="text-danger">Failed</p>
+					} else
+					{
+						<p class="text-success">Passed</p>
+					}
+				</td>
+			</tr>
+		}
+	</table>
+
+</div>
+<p>
+	@if (Request.IsAuthenticated) {
+		@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+		<br />
+		@Html.ActionLink("Back to List", "Index")
+	}
+	<br />
+    In case of any discrepancy in result, <a href="#">click here</a>.
+</p>

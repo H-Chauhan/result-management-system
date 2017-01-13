@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Result Management System</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Welcome to Result Management System</h2>
+        <p>
+            Enter your Roll No. below to check your results.
+        </p>
+		@using (Html.BeginForm("Details", "students", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Get, new { @class = "form-inline", @id = "rollnoform" }))
+		{
+			<small>E.g. 2k14-XX-YYY</small>
+			<div class="form-group">
+				<label class="sr-only">Roll No.</label>
+				@Html.TextBox("id", "", new { @class = "form-control", required = "required", @id = "rollno" })
+			</div>
+			<input type="submit" value="View Result" class="btn btn-success" />
+		}
+    </div>
+</div>
+
+<script>
+	document.getElementById("rollnoform").onsubmit = function () {
+		var x = document.getElementById("rollno").value;
+		if (x.includes("/") || x.includes("\\") || x.includes(".") || x.length < 11) {
+			alert("Please fill valid roll no.!");
+			return false;
+		} else {
+			return true;
+		}
+	};
+</script>

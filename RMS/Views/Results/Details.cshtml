@@ -1,0 +1,58 @@
+﻿@model RMS.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Student.RollNo)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Student.RollNo)
+		</dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarksObtained)
+        </dt>
+
+        <dd>
+			@Html.DisplayFor(model => model.MarksObtained) / @Html.DisplayFor(model => model.Subject.MaxMarks)
+        </dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Credits)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Credits) / @Html.DisplayFor(model => model.Subject.Credits)
+		</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RMS.Models.Result>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "results", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Get, new { @class = "form-inline" }))
+{
+	<div class="form-group">
+		<label class="sr-only">Search</label>
+		@Html.TextBox("SearchString", "", new { @class = "form-control" })
+	</div>
+	<input type="submit" value="Search" class="btn btn-default" />
+}
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Student.RollNo)
+		</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarksObtained)
+        </th>
+		<th>
+			@Html.DisplayNameFor(model => model.Credits)
+		</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Student.RollNo)
+		</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarksObtained) / @Html.DisplayFor(modelItem => item.Subject.MaxMarks)
+        </td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Credits) / @Html.DisplayFor(modelItem => item.Subject.Credits)
+		</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
